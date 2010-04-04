@@ -65,6 +65,8 @@ Install the gem from rubygems.org:
 
   # gem install liquidity
 
+Take a glance at the Rdoc here[http://rdoc.info/projects/moonmaster9000/liquidity]
+
 = Usage
 
 Though I would imagine you would typically be using this for doing liquid layouts on the web, for the purposes of instruction, we'll
