@@ -15,7 +15,7 @@ class Array
 
   def slices(num_slices)
     array_of_slices = []
-    each_slice(num_slices) { |s| array_of_slices << s }
+    each_slice(length / num_slices) { |s| array_of_slices << s }
     array_of_slices
   end
 end
