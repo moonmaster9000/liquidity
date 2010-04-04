@@ -1,24 +1,63 @@
 = Motivation
 
-When doing multi-column liquid layouts on the web, it's often preferrable to have your data sorted into columns instead of rows. 
+Liquid layouts: the practice (among other things) of rendering a single ul/li group (like this):
 
-For example, if you tried to do a 3 column liquid layout of the sorted array [1, 2, .... 11], you would end up with: 
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+  </ul>
 
+into a multi-column layout like this: 
+  
   1   2   3
   4   5   6
   7   8   9
   10  11
 
-However, you might find that your readers prefer seeing the data sorted down into columns:
+using CSS like this: 
 
+  <style type="text/css">
+    ul {width: 30%}
+    li {width: 33%; text-align: left; float: left}
+  </style>
+
+
+But what if you wanted the data sorted by column, not by row? For this, CSS is inadequate: it's capable of flowing from left to right, 
+top to bottom. So in order to acheive a column sorting, we need to resort the data, like this: 
+
+  <ul>
+    <li>1</li>
+    <li>5</li>
+    <li>9</li>
+    <li>2</li>
+    <li>6</li>
+    <li>10</li>
+    <li>3</li>
+    <li>7</li>
+    <li>11</li>
+    <li>4</li>
+    <li>8</li>
+    <li></li>
+  </ul>
+
+Using the same CSS, this would render: 
 
   1   5   9
   2   6   10
   3   7   11 
   4   8
 
-To acheive this while still using only a single "ul" containing multiple "li" elements, you can use the "column\_sort" method
-provided by this gem.
+The liquidity gem adds a "column_sort" method to the Array class, making it simple to resort your collection for a column-sorted liquid
+layout.
 
 = Installation
 
