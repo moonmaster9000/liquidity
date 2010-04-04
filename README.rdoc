@@ -31,6 +31,8 @@ Install the gem from rubygems.org:
 Though I would imagine you would typically be using this for doing liquid layouts on the web, for the purposes of instruction, we'll
 imagine that we have the following method for printing out an array: 
 
+  require 'liquidity'
+
   def print_matrix(a)
     a.each_slice(3) do |slice|
       puts slice.join("\t")
@@ -50,7 +52,6 @@ If we passed off the array of (1..11) to it, we would see the following printed:
 Now, imagine that we wanted see the matrix where the data was sorted into columns, not rows. We can use the "column\_sort" method 
 provided by the "liquidity" gem: 
 
-  require 'liquidity'
   a = (1..11).to_a
   print_matrix a.column_sort(3)
   # ==> 
