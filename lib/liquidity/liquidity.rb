@@ -36,10 +36,15 @@ class Array
   #
   #Just like the {Array::sort}[http://ruby-doc.org/core/classes/Array.html#M002185] method, you can pass a block to column_sort. 
   def column_sort(num_columns, &block)
-    new_array = sort(&block)
+    new_array = block ? sort(&block) : self.dup
     new_length = new_array.length % num_columns == 0 ? new_array.length : new_array.length + num_columns - new_array.length % num_columns
     new_array.pad(new_length).slices(num_columns).transpose.flatten
   end
+  
+  # todo, add a column_sort! method
+  #def column_sort(num_columns, &block)
+  #  dup.column_sort!
+  #end
 
   # pad an array to a new length, adding nil elements onto the end of the collection 
   def pad(new_length)
