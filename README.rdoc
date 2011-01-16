@@ -103,4 +103,26 @@ provided by the "liquidity" gem:
 
 == Passing a block to column_sort 
 
-Just like the {Array::sort}[http://ruby-doc.org/core/classes/Array.html#M002185] method, you can pass a block to column_sort. 
+Just like the {Array::sort}[http://ruby-doc.org/core/classes/Array.html#M002185] method, you can pass a block to column_sort.
+Without a block, column_sort outputs based on the given array:
+
+  a = (1..11).to_a
+  a.reverse!
+  print_matrix a.column_sort(3)
+  # ==>
+  11    7   3
+  10    6   2
+  9     5   1
+  8     4
+
+Or, you can have the array sorted by passing in a block:
+  
+  print_matrix(a.column_sort(3) { |c1,c2| c1 <=> c2 })
+  # ==>
+    1   5   9
+    2   6   10
+    3   7   11
+    4   8
+
+
+
